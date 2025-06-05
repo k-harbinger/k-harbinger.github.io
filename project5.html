@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kaj Harbin - About Me</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header> 
+    <h1>Turtle Project</h1>
+  </header>
+
+  <section> 
+    <h2>About the Project</h2>
+    <p>
+        This project is about creating a graphical scene using Python's Turtle graphics module. 
+        I used the provided building block functions (draw_rectangle, draw_square, draw_circle, etc.)
+        to create composite shapes such as a moon, stars, and a castle. I altered the existing
+        draw_triangle function to be focused on a point radially so that I could create 6-pointed stars. 
+    </p>
+  </section>
+
+<section> 
+    <h2>Sample Code</h2>
+    <p>
+       This function creates an equilateral triangle which will be re-used to create a 6-pointed star.
+       <br>
+       <br>
+
+    </p>
+  
+  <div class="code-container">
+    <code>
+    def draw_eqtri(t, center_x, center_y, size, rotation_angle, fill_color):
+    """Draw an equilateral triangle centered at a point with a rotation angle"""
+    t.penup()
+
+    # Calculate the 3 vertices relative to the center
+    points = []
+    for i in range(3):
+        angle_deg = rotation_angle + i * 120
+        angle_rad = math.radians(angle_deg)
+        x = center_x + size * math.cos(angle_rad)
+        y = center_y + size * math.sin(angle_rad)
+        points.append((x, y))
+
+    # Move to first point and start fill
+    t.goto(points[0])
+    t.pendown()
+    t.fillcolor(fill_color)
+    t.begin_fill()
+
+    # Draw lines to each vertex
+    for point in points[1:] + [points[0]]:
+        t.goto(point)
+
+    t.end_fill()
+    t.penup()
+    t.goto(center_x, center_y)
+    t.pendown()
+def draw_star(t, size, fill_color):
+    """draw star"""
+    x, y = t.pos()
+    draw_eqtri(t, x, y, size, rotation_angle=0, fill_color=fill_color)
+    draw_eqtri(t, x, y, size, rotation_angle=60, fill_color=fill_color)
+    </code>
+  </div>
+</section>
+<section>
+
+  
+        <h2>Final Scene</h2>
+        <p>Here's the completed turtle graphics scene featuring a house with colorful flower garden, fluffy clouds, a bright sun, and a pine tree:</p>
+        
+        <div class="scene-container">
+            <img src="screenshot_newscene.png" alt=" Three grey castles. They float on a night sky with two moons, one white and one yellow, and five yellow stars." class="scene-image">
+        </div>
+        
+        <p class="scene-description">
+            The scene combines multiple composite shapes created from basic turtle graphics functions. The castle uses rectangles, 
+            while the moons are made from overlapping circles. The stars, composed of unique triangle code, demonstrate the layering technique shown in the 
+            code sample above, and the overall composition creates a vintage video game fantasy scene.
+        </p>
+</section>
+
+
+  <footer>
+    © Kaj Harbin | Background Image "The Sirens, 1892" by John Longstaff from:
+    <a href="https://medium.com/@arshiayzd/the-sirens-1892-by-john-longstaff-628a47e8630">Medium</a>
+  </footer>
+</body>
+</html>

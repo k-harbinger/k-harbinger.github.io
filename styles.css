@@ -7,125 +7,15 @@ The gradient thing is just something I learned making/editing Tumblr themes*/
 /* Global Styles */
 
 
+/* Reset and Box Sizing */
 * {
     margin: 0;
-    padding: 20;
+    padding: 20px; /* Fixed: added 'px' */
     box-sizing: border-box;
-}
-
-header {
-    text-align: center;
-  margin-bottom: 30px;
-  background-image: linear-gradient(#2e8262,#4EE4AB);
-  color: white;
-  padding:
-30px;
-  border-radius:
-8px;
-  } 
-body {
-    font-family: Georgia, 'Times New Roman', Times, serif, Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #0d0d10;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
-
-
-    .profile-image {
-        width: 150px;
-        height: 150px;
-        border-radius:
-      50%;
-        object-fit: cover;
-        border:
-      3px solid #abdad8;
-        margin-bottom: 15px;
-      }
-
-      /* I used this tutorial https://www.w3schools.com/html/html_links_colors.asp */
-      a:link {
-        color: #4EE4AB;
-        background-color: transparent;
-        text-decoration: none;
-      }
-      a:visited {
-        color: #9ffdd9;
-        background-color: transparent;
-        text-decoration: none;
-      }
-      a:hover {
-        color: #0d0d10;
-        background-color: transparent;
-        text-decoration: underline;
-      }
-      a:active {
-        color: rgb(233, 125, 222);
-        background-color: transparent;
-        text-decoration: underline;
-      }
-
-      section {
-        margin-bottom: 30px;
-        padding:
-      20px;
-        background-color: white;
-        border-radius:
-      8px;
-      opacity: 0.5;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 1);
-        border-top: 4px 
-      solid #4EE4AB;
-      }
-}
-
-#yeet li {
-  flex:
-1 1;
-  background-color: #bdece1;
-  padding:
-8px 15px;
-  border-radius:
-20px;
-  font-size: 0.9rem;
-  border:
-1px solid #6fa89c;
-}
-li {
-  margin-bottom: 5px;
-  transition:
-transform 0.2s ease, color 0.2s ease;
-}
-
-/* From the example page*/
-#yeet li {
-  margin-bottom: 5px;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-/* From the example page*/
-#yeet li:hover {
-  color: #34d8db;
-  transform: translateX(5px);
-}
-
-#yeet li {
-  list-style-type: none;
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-
-
-/* Background Image with Transparency */
-/* need position: fixed; and top: 0; left: 0; */
-body:before {
+  }
+  
+  /* Background image with transparency */
+  body::before {
     content: "";
     position: fixed;
     top: 0;
@@ -137,4 +27,105 @@ body:before {
     background-position: center;
     opacity: 0.8;
     z-index: -1;
-}
+  }
+  
+  /* Base body styling */
+  body {
+    font-family: Georgia, 'Times New Roman', Times, serif, Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #0d0d10;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    background: transparent;
+  }
+  
+  /* Header styling */
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+    background-image: linear-gradient(#2e8262, #4EE4AB);
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+  }
+  
+  /* Profile image */
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #abdad8;
+    margin-bottom: 15px;
+  }
+  
+  /* Link styles */
+  a:link {
+    color: #4EE4AB;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:visited {
+    color: #9ffdd9;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #0d0d10;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  a:active {
+    color: rgb(233, 125, 222);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  /* Section styling */
+  section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    opacity: 0.5;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 1);
+    border-top: 4px solid #4EE4AB;
+  }
+  
+  /* Flex container for technical skills */
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* List items inside .container (aka #yeet list) */
+  #yeet {
+    padding-left: 0;
+  }
+  
+  #yeet li {
+    flex: 1 1;
+    background-color: #bdece1;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid #6fa89c;
+    list-style-type: none;
+    margin-bottom: 5px;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  
+  #yeet li:hover {
+    color: #34d8db;
+    transform: translateX(5px);
+  }
+  
+  /* Generic list item margin */
+  li {
+    margin-bottom: 5px;
+  }
+  
