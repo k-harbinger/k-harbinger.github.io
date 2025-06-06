@@ -24,54 +24,29 @@
 <section> 
     <h2>Sample Code</h2>
     <p>
-       This function creates an equilateral triangle which will be re-used to create a 6-pointed star.
+       This function creates a 6-pointed star using my custom equilateral triangle function.
        <br>
        <br>
 
     </p>
   
-  <div class="code-container">
-    <code>
-    def draw_eqtri(t, center_x, center_y, size, rotation_angle, fill_color):
-    """Draw an equilateral triangle centered at a point with a rotation angle"""
-    t.penup()
+<div class="code-container">
+  <pre><code>
+<span class="keyword">def</span> <span class="function">draw_star</span>(<span class="parameter">t</span>, <span class="parameter">size</span>, <span class="parameter">fill_color</span>):
+    <span class="comment">"""draw star"""</span>
+    <span class="parameter">x</span>, <span class="parameter">y</span> = <span class="parameter">t</span>.<span class="function">pos</span>()
+    <span class="function">draw_eqtri</span>(<span class="parameter">t</span>, <span class="parameter">x</span>, <span class="parameter">y</span>, <span class="parameter">size</span>, <span class="parameter">rotation_angle</span>=<span class="string">0</span>, <span class="parameter">fill_color</span>=<span class="parameter">fill_color</span>)
+    <span class="function">draw_eqtri</span>(<span class="parameter">t</span>, <span class="parameter">x</span>, <span class="parameter">y</span>, <span class="parameter">size</span>, <span class="parameter">rotation_angle</span>=<span class="string">60</span>, <span class="parameter">fill_color</span>=<span class="parameter">fill_color</span>)
+  </code></pre>
+</div>
 
-    # Calculate the 3 vertices relative to the center
-    points = []
-    for i in range(3):
-        angle_deg = rotation_angle + i * 120
-        angle_rad = math.radians(angle_deg)
-        x = center_x + size * math.cos(angle_rad)
-        y = center_y + size * math.sin(angle_rad)
-        points.append((x, y))
 
-    # Move to first point and start fill
-    t.goto(points[0])
-    t.pendown()
-    t.fillcolor(fill_color)
-    t.begin_fill()
-
-    # Draw lines to each vertex
-    for point in points[1:] + [points[0]]:
-        t.goto(point)
-
-    t.end_fill()
-    t.penup()
-    t.goto(center_x, center_y)
-    t.pendown()
-def draw_star(t, size, fill_color):
-    """draw star"""
-    x, y = t.pos()
-    draw_eqtri(t, x, y, size, rotation_angle=0, fill_color=fill_color)
-    draw_eqtri(t, x, y, size, rotation_angle=60, fill_color=fill_color)
-    </code>
-  </div>
 </section>
 <section>
 
   
         <h2>Final Scene</h2>
-        <p>Here's the completed turtle graphics scene featuring a house with colorful flower garden, fluffy clouds, a bright sun, and a pine tree:</p>
+        <p>Here's the completed turtle graphics scene featuring three castles, a blue night sky full of stars, and two moons:</p>
         
         <div class="scene-container">
             <img src="screenshot_newscene.png" alt=" Three grey castles. They float on a night sky with two moons, one white and one yellow, and five yellow stars." class="scene-image">
